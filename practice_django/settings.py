@@ -110,11 +110,10 @@ WSGI_APPLICATION = "practice_django.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "HOST": "db.vmjdmfuejxqjmuqwawwu.supabase.co",
+        "HOST": "db.kfiezyduocoxannstdhe.supabase.co",
         "NAME": "postgres",
         "USER": "postgres",
         "PASSWORD": "shahidul1004",
-        
         "PORT": "5432",
     }
 }
@@ -181,8 +180,8 @@ ACCOUNT_LOGOUT_REDIRECT = '/accounts/login'
 SOCIALACCOUNT_PROVIDERS = {
     'google': {
         'APP': {
-            'client_id': "362002053090-vraqout5e0s339bb17ast6775ff1c556.apps.googleusercontent.com",
-            'secret': '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PX-fDaUgxXUWdnoW-njxORSD1EqsOP5',
+            'client_id': "426486056756-9t5nt27nvl4v66rt4mgm7fkjupdchcod.apps.googleusercontent.com",
+            'secret': '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',
             'key': ''
         },
         'SCOPE': [
