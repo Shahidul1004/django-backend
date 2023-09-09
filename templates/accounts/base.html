@@ -1,4 +1,6 @@
 {% load i18n %}
+{% load socialaccount %}
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -26,11 +28,12 @@
       <strong>{% trans "Menu:" %}</strong>
       <ul>
         {% if user.is_authenticated %}
-        <li><a href="{% url 'account_email' %}">{% trans "Change Email" %}</a></li>
         <li><a href="{% url 'account_logout' %}">{% trans "Sign Out" %}</a></li>
         {% else %}
         <li><a href="{% url 'account_login' %}">{% trans "Sign In" %}</a></li>
         <li><a href="{% url 'account_signup' %}">{% trans "Sign Up" %}</a></li>
+        <p>Or</p>
+        <li><a href="{% provider_login_url 'google' %}">Login with Google</a></li>
         {% endif %}
       </ul>
     </div>

@@ -1,0 +1,16 @@
+{% extends "accounts/base.html" %} 
+{% load i18n %} 
+{% block head_title %}{% trans "User Info" %}{% endblock %}
+{% block content %}
+
+<h1>{% trans "User Information" %}</h1>
+
+<p>Email: {{ user.email }}</p>
+<p>Username: {{ user.username }}</p>
+<p>First Name: {{ user.first_name }}</p>
+<p>Last Name: {{ user.last_name }}</p>
+{% if user.birthYear %}
+<p>Birth Year: {{ user.birthYear }}</p>
+{% endif %}
+
+{% endblock %}

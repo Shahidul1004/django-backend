@@ -10,7 +10,6 @@ class SignupForm(forms.ModelForm):
         fields = ('first_name', 'last_name', 'birthYear')
 
     def signup(self, request, user):
-        # Save your user
         user.first_name = self.cleaned_data['first_name']
         user.last_name = self.cleaned_data['last_name']
         user.birthYear = self.cleaned_data['birthYear']

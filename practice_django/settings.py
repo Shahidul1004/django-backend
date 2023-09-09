@@ -12,10 +12,14 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
+import environ
 import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+env = environ.Env()
+environ.Env.read_env((BASE_DIR / ".env").as_posix())  # reading .env file
 
 
 # Quick-start development settings - unsuitable for production
@@ -110,6 +114,7 @@ DATABASES = {
         "NAME": "postgres",
         "USER": "postgres",
         "PASSWORD": "shahidul1004",
+        
         "PORT": "5432",
     }
 }
@@ -168,6 +173,28 @@ ACCOUNT_SIGNUP_FORM_CLASS = "accounts.forms.SignupForm"
 # 'signup': 'YourProject.forms.CustomSignupForm',
 # }
 
+SITE_ID = 1
+
+LOGIN_REDIRECT_URL = '/accounts/profile'
+ACCOUNT_LOGOUT_REDIRECT = '/accounts/login'
+
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'APP': {
+            'client_id': "362002053090-vraqout5e0s339bb17ast6775ff1c556.apps.googleusercontent.com",
+            'secret': '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PX-fDaUgxXUWdnoW-njxORSD1EqsOP5',
+            'key': ''
+        },
+        'SCOPE': [
+            'profile',
+            'email',
+        ],
+        'AUTH_PARAMS': {
+            'access_type': 'online',
+        }
+    }
+}
+
 
 STATIC_URL = "static/"
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
@@ -175,3 +202,11 @@ STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles_build", "static")
 
 MEDIA_URL = "img/"
 MEDIA_ROOT = BASE_DIR / "media"
+
+
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_EMAIL_VERIFICATION = 'none'
+
+LOGOUT_REDIRECT_URL = '/accounts/login'
