@@ -27,7 +27,7 @@ SECRET_KEY = "django-insecure-1p3a23_ui3mnhw$t4+ic6tf6nss%d)*i2hd#cqr(f5tcj9mw_$
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -105,12 +105,12 @@ WSGI_APPLICATION = "practice_django.wsgi.application"
 # else:
 DATABASES = {
     "default": {
-    "ENGINE": "django.db.backends.postgresql_psycopg2",
-    "HOST": "db.vmjdmfuejxqjmuqwawwu.supabase.co",
-    "NAME": "postgres",
-    "USER": "postgres",
-    "PASSWORD": "shahidul1004",
-    "PORT": "5432",
+        "ENGINE": "django.db.backends.postgresql_psycopg2",
+        "HOST": "db.vmjdmfuejxqjmuqwawwu.supabase.co",
+        "NAME": "postgres",
+        "USER": "postgres",
+        "PASSWORD": "shahidul1004",
+        "PORT": "5432",
     }
 }
 
@@ -154,7 +154,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = "static/"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
@@ -169,7 +168,10 @@ ACCOUNT_SIGNUP_FORM_CLASS = "accounts.forms.SignupForm"
 # 'signup': 'YourProject.forms.CustomSignupForm',
 # }
 
-STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
+
+STATIC_URL = "static/"
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles_build", "static")
 
-ALLOWED_HOSTS = ["*"]
+MEDIA_URL = "img/"
+MEDIA_ROOT = BASE_DIR / "media"
