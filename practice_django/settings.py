@@ -49,7 +49,6 @@ INSTALLED_APPS = [
     "allauth.account",
     "allauth.socialaccount",
     "allauth.socialaccount.providers.google",
-    "allauth.socialaccount.providers.github",
     "widget_tweaks",
 ]
 
@@ -88,33 +87,15 @@ WSGI_APPLICATION = "practice_django.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-# DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.sqlite3",
-#         "NAME": BASE_DIR / "db.sqlite3",
-#     }
-# }
 
-# if os.environ["ENVIRONMENT"] == "PRODUCTION":
-#     DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': env.str('DB_NAME'),
-#         'USER': env.str('DB_USER'),
-#         'PASSWORD': env.str('DB_PASSWORD'),
-#         'HOST': env.str('DB_HOST'),
-#         'PORT': env.str('DB_PORT'),
-#     }
-# }
-# else:
 DATABASES = {
     "default": {
-        "ENGINE": env.str('ENGINE'),
-        "HOST": env.str('HOST'),
-        "NAME": env.str('NAME'),
-        "USER": env.str('USER'),
-        "PASSWORD": env.str('PASSWORD'),
-        "PORT": env.str('PORT'),
+        "ENGINE": env.str("ENGINE"),
+        "HOST": env.str("HOST"),
+        "NAME": env.str("NAME"),
+        "USER": env.str("USER"),
+        "PASSWORD": env.str("PASSWORD"),
+        "PORT": env.str("PORT"),
     }
 }
 
@@ -167,30 +148,25 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 AUTH_USER_MODEL = "accounts.CustomUser"
 ACCOUNT_SIGNUP_FORM_CLASS = "accounts.forms.SignupForm"
 
-
-# ACCOUNT_FORMS = {
-# 'signup': 'YourProject.forms.CustomSignupForm',
-# }
-
 SITE_ID = 1
 
-LOGIN_REDIRECT_URL = '/accounts/profile'
-ACCOUNT_LOGOUT_REDIRECT = '/accounts/login'
+LOGIN_REDIRECT_URL = "/accounts/profile"
+ACCOUNT_LOGOUT_REDIRECT = "/accounts/login"
 
 SOCIALACCOUNT_PROVIDERS = {
-    'google': {
-        'APP': {
-            'client_id': env.str('CLIENT_ID'),
-            'secret': env.str('CLIENT_SECRET'),
-            'key': ''
+    "google": {
+        "APP": {
+            "client_id": env.str("CLIENT_ID"),
+            "secret": env.str("CLIENT_SECRET"),
+            "key": "",
         },
-        'SCOPE': [
-            'profile',
-            'email',
+        "SCOPE": [
+            "profile",
+            "email",
         ],
-        'AUTH_PARAMS': {
-            'access_type': 'online',
-        }
+        "AUTH_PARAMS": {
+            "access_type": "online",
+        },
     }
 }
 
@@ -205,7 +181,7 @@ MEDIA_ROOT = BASE_DIR / "media"
 
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_USERNAME_REQUIRED = False
-ACCOUNT_AUTHENTICATION_METHOD = 'email'
-ACCOUNT_EMAIL_VERIFICATION = 'none'
+ACCOUNT_AUTHENTICATION_METHOD = "email"
+ACCOUNT_EMAIL_VERIFICATION = "none"
 
-LOGOUT_REDIRECT_URL = '/accounts/login'
+LOGOUT_REDIRECT_URL = "/accounts/login"
