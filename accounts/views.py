@@ -21,6 +21,3 @@ def profile(request):
 def helloView(request):
     redirect_url = "/accounts/login"
     return redirect(redirect_url)
-    content = {"message": "Hello, World!"}
-    your_json = [{"key1": 1, "key2": 2}]
-    return HttpResponse(your_json, "application/json")
